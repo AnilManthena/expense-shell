@@ -43,7 +43,7 @@ VALIDATE $? "Starting mysql server"
 
 #below code is useful for idempotent nature
 
-mysql -h devops4me.cloud -uroot -p${mysql_root_password} -e 'SHOW DATABASES;' &>>$LOGFILE
+mysql -h db.devops4me.cloud -uroot -p${mysql_root_password} -e 'SHOW DATABASES;' &>>$LOGFILE
 if [ $? -ne 0 ]
 then
     mysql_secure_installation --set-root-pass -p${mysql_root_password} &>>$LOGFILE
